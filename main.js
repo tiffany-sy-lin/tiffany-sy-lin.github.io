@@ -22,6 +22,5 @@ let myChart = new Chart(CHART, {
                 "#FFCE56"
             ]
         }]
-  },
-  options: options
-})
+  }
+});
