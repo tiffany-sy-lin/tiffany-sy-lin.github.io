@@ -10,12 +10,10 @@ var data = {
         {
             data: [300, 100],
             backgroundColor: [
-                "#FF6384",
                 "#36A2EB",
                 "#FFCE56"
             ],
             hoverBackgroundColor: [
-                "#FF6384",
                 "#36A2EB",
                 "#FFCE56"
             ]
