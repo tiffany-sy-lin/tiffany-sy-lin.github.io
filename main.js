@@ -1,8 +1,8 @@
 const CHART = document.getElementById("myChart");
 console.log(CHART);
-let myChart = new Chart(CHART, {
-  type: 'doughnut',
-  data: {
+
+
+var data = {
     labels: [
         "Red",
         "Blue",
@@ -22,5 +22,10 @@ let myChart = new Chart(CHART, {
                 "#FFCE56"
             ]
         }]
-  }
+  };
+
+  
+let myChart = new Chart(CHART, {
+  type: 'doughnut',
+  data: data
 });
