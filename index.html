@@ -3,33 +3,37 @@
 	<head>
 		<title>UI Dev Challenge</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  		<link rel="stylesheet" href="/stylesheets/styles.css">
-  		<link rel="stylesheet" href="/stylesheets/bootstrap.css">
+  	<link rel="stylesheet" href="/stylesheets/styles.css">
+  	<link rel="stylesheet" href="/stylesheets/bootstrap.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.js"></script>
 		<script src="/js/angular.min.js"></script>
 		<script src="/js/angular-chart.min.js"></script>
 		<script src="/js/main.js"></script>
 	</head>
+  <!--Start of the app-->
 	<body ng-app="movieSalesApp" ng-controller="theController">
 		<div class="container-fluid">
+      <!--Panel containing the title, graph, legend, and analysis on the bottom-->
 			<div class="panel topPanel">
 				<div class="row">
 				<div class="col-md-6 statsLabels">
 					<h2>Total Movie Sales</h2>
-					<span>Comparison - {{movies.movie1.movieTitle}} and {{movies.movie2.movieTitle}}</span>
+					<span>Comparison - {{movieInfo.movie1.movieTitle}} and {{movieInfo.movie2.movieTitle}}</span>
 				</div>
 				<div class="col-md-6 statsLabels text-right">
 					<p>Average value of sales in the past month in: <b>United States</b></p>
 					<p>All sales: 162,862</p>
 				</div>
 				</div>
+      <!--Graph-->  
 			<div class="col-md-8">
         <canvas class="chart chart-line" chart-data="graphLineDataPoints" chart-labels="graphLineLabels" chart-colors="graphLineColors" chart-series="graphLineSeries"  chart-legend="false" chart-click="onClick" >
        	</canvas> 
     	</div>
+      <!--Legend-->
          <div class="row col-md-4">
          	<div class="totalOrders">
-         		<div ng-repeat="movie in movies" id={{'movieProgressBar'+$index}}>
+         		<div ng-repeat="movie in movieInfo" id={{'movieProgressBar'+$index}}>
               <h2>{{movie.movieTicketPurchases}}</h2>
            		<p>Total orders - {{movie.movieTitle}}</p>
               <div class="progress">
@@ -41,6 +45,7 @@
          	</div>
         </div>
         <hr>
+        <!--Anlysis-->
     		<div class="row">
     			<div class="col-md-9 analysisText">
     				<p><b>Analysis of sales:</b> The value has been changed over time, and last month reached a level over $50,000.</p>
@@ -50,8 +55,9 @@
   				</div>
     		</div>
     	</div>
+        <!--Bottom section with Buy Tickets panels-->
     		<div class="row">
-        	<div class="col-md-6" ng-repeat="movie in movies">
+        	<div class="col-md-6" ng-repeat="movie in movieInfo">
           	<div class="panel bottomPanels">
             	<h2>{{movie.movieTitle}}</h2>
             	<p><b>Release Date </b>{{movie.movieReleaseDate}}</p>
@@ -61,7 +67,7 @@
               		<div class="col-md-6"><button type="button" class="btn btn-primary">Buy Tickets</button>
               		</div>
             	</div>
-            	<br/>
+            	<br>
            			<div class="row">
            				<div class="col-md-6"><h4>May 4, 2015</h4>
            				</div>
